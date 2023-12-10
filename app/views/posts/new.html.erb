@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :modal do %>
+<%# 응답 받아서 보여줘야할 템플릿에는 do %>
+  <div data-controller="turbomodal" class="card" data-action="turbo:submit-end->turbomodal#submitEnd">
+    <%# turbomodal_controller.js와 연결 %>
+    <h1>New post</h1>
+    <%= render "form", post: @post %>
+      <br>
+      <div>
+        <%= button_to "Cancel", posts_path, method: :get %>
+      </div>
+  </div> 
+<% end %>

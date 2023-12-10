@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<%= button_to "New post", new_post_path, data:{turbo_frame: "modal"}, method: :get  %>
+<%# application.html.erb에서 설정한 turbo_frame_tag :modal 와 연결 , new.html.erb와 연결해줘야함 %>
+<h1>Posts</h1>
+
+<div id="posts" class="card">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%#= button_to "Show this post", post %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
