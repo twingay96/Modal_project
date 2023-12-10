@@ -8,6 +8,7 @@ export default class extends Controller {
   submitEnd(e) {
     //console.log(e) // e 는 이벤트에대한 객체 (이벤트에대한 정보를 담고있음)
     if(e.detail.success){
+      console.log(e.detail.success)
       this.hideModal()
     }
     //console.log(e.detail.success) 

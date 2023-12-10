@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.turbo_stream do 
-          render turbo_stream: turbo_stream.update("@post",partial: "posts/post" , locals: {post: @post})
+          render turbo_stream: turbo_stream.replace(@post ,partial: "posts/post" , locals: {post: @post})
         end
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
