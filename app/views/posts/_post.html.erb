@@ -11,7 +11,7 @@
   <div>
     <% unless post.id.nil? %>
       <%= button_to "Edit this post", edit_post_path(post),  data:{turbo_frame: "modal"} , method: :get%>
-      <%# edit 템플릿에 modal 태그가  있기를 기대함 %>
+      <%# edit 템플릿에 modal 태그(tag)가  있기를 기대함 %>
       <%#= link_to "Back to posts", posts_path %>
       <%= button_to "Destroy this post", post, method: :delete %>
     <% end %>

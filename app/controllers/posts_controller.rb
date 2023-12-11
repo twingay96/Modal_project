@@ -19,6 +19,21 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def close
+    puts "close modal"
+    respond_to do |format|
+      format.turbo_stream do
+        puts "response by Turbo"
+        render turbo_stream: [
+          turbo_stream.remove("to_close_modal")
+          # application.html.erb 의 <%= turbo_frame_tag :modal%>의 내부요소를 remove한다 
+         
+        ]
+      end
+      format.html { render :index }
+    end
+  end
+
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)

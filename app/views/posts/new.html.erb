@@ -1,13 +1,13 @@
 <%= turbo_frame_tag :modal do %>
 <%# 요청 받아서 보여줘야할 템플릿에는 do %>
 <%# 요청을 받아서 turbo_frame_tag :modal 에 보여줘야할 템플릿 %>
-  <div data-controller="turbomodal" class="card" data-action="turbo:submit-end->turbomodal#submitEnd">
+  <div id="to_close_modal" data-controller="turbomodal" class="card" data-action="turbo:submit-end->turbomodal#submitEnd">
     <%# turbomodal_controller.js와 연결 %>
     <h1>New post</h1>
     <%= render "form", post: @post %>
       <br>
       <div>
-          <%= button_to "Cancel", posts_path, method: :get %>
+          <%= button_to "Close",modalClose_path, method: :post %>
       </div>
   </div> 
 <% end %>
