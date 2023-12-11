@@ -13,8 +13,27 @@
   </head>
 
   <body>
-    <%= turbo_frame_tag :modal%>
-    <%= yield %>
+    <style>
+      .custom-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* background-color: white; */
+        /* padding: 20px; */
+        /* border: 1px solid #ccc; */
+        z-index: 2; /* 모달의 z-index를 조절합니다. */
+      }
+      .other-elements {
+        z-index: 1; /* 다른 요소들의 z-index를 조절합니다. */
+      }
+    </style>
+
+    <%= turbo_frame_tag :modal ,class: "custom-modal"%>
+
+    <div class="other-elements">
+      <%= yield %>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
   
